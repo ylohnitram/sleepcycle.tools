@@ -27,6 +27,7 @@ For local development:
 git clone https://github.com/your-username/sleepcycle.tools.git
 cd sleepcycle.tools
 # Open index.html in any modern browser
+```
 
 ## Analytics  
 This project uses Google Analytics 4 (GA4) for aggregated usage statistics. No personal data is collected. To disable:  

@@ -47,11 +47,13 @@ function calculateSleepPhases(wakeTime) {
 ```
 
 ### Tech Stack
-- Frontend: Vanilla JavaScript + CSS
-- Hosting: GitHub Pages
-- Analytics: Google Analytics 4 (GDPR-compliant)
+
+* Frontend: Vanilla JavaScript + CSS
+* Hosting: GitHub Pages
+* Analytics: Google Analytics 4 (GDPR-compliant)
 
 ## 🔍 Analytics & Privacy
+
 We collect anonymous aggregate data through GA4 to:
 
 * Track feature usage (button clicks)
@@ -65,6 +67,7 @@ We collect anonymous aggregate data through GA4 to:
 * Use privacy-focused browsers like Brave or Firefox Focus
 
 ## 🤝 Contributing
+
 We welcome contributions! Please follow these steps:
 
 * Fork the repository
@@ -80,14 +83,16 @@ We welcome contributions! Please follow these steps:
 * Implement timezone detection
 * Add nap calculator feature
 
-##📜 Code of Conduct
+## 📜 Code of Conduct
+
 Please review our Code of Conduct before participating. We prioritize:
 
 * Respectful communication
 * Inclusive environment
 * Constructive criticism
 
-##📄 License
+## 📄 License
+
 This project is licensed under the MIT License - see LICENSE.md for details.
 
 ## 🙏 Acknowledgments

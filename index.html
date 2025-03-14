@@ -7,20 +7,24 @@
 
     <!-- Primary Meta Tags -->
     <title>SleepCycle.tools - 90-Minute Sleep Cycle Calculator</title>
-    <meta name="description" content="Free scientific sleep planner. Calculate perfect bedtimes & wake-up times using circadian rhythm science. Optimize your sleep with 90-minute cycles.">
+    <meta name="description" content="Scientific sleep calculator using circadian rhythm research. Calculate perfect bedtimes and wake-up times based on 90-minute sleep cycles.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="SleepCycle.tools - Smart Sleep Calculator">
-    <meta property="og:description" content="Discover your ideal sleep schedule using 90-minute cycles. Instant calculations based on sleep science.">
-    <meta property="og:image" content="https://og-image.vercel.app/SleepCycle.tools.png?theme=dark&md=1&fontSize=100px&heights=350&images=https%3A%2F%2Femojicdn.elk.sh%2F⏰">
+    <meta property="og:title" content="SleepCycle.tools - Smart Sleep Planner">
+    <meta property="og:description" content="Optimize your sleep schedule with 90-minute cycle calculations. Instant results with sleep science.">
+    <meta property="og:image" content="https://sleepcycle.tools/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://sleepcycle.tools">
     <meta property="og:type" content="website">
+    <meta property="og:image:alt" content="Sleep Cycle Calculator Interface">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Free Sleep Cycle Calculator">
-    <meta name="twitter:description" content="Optimize your sleep with science-based 90-minute cycle calculator">
-    <meta name="twitter:image" content="https://og-image.vercel.app/SleepCycle.tools.png?theme=dark&md=1&fontSize=100px&heights=350&images=https%3A%2F%2Femojicdn.elk.sh%2F⏰">
+    <meta name="twitter:title" content="Free 90-Minute Sleep Calculator">
+    <meta name="twitter:description" content="Professional sleep optimization tool based on circadian rhythms">
+    <meta name="twitter:image" content="https://sleepcycle.tools/og-image.jpg">
+    <meta name="twitter:image:alt" content="Sleep calculator visualization">
 
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -31,9 +35,15 @@
         "url": "https://sleepcycle.tools",
         "operatingSystem": "Web",
         "applicationCategory": "HealthApplication",
-        "description": "Scientific sleep calculator using 90-minute cycles",
-        "featureList": "Bedtime calculator, Wake-up time calculator, Sleep cycle visualization",
-        "screenshot": "https://og-image.vercel.app/SleepCycle.tools.png"
+        "description": "Scientific sleep planner using 90-minute cycles",
+        "featureList": "Bedtime calculator, Wake-up time calculator",
+        "screenshot": "https://sleepcycle.tools/og-image.jpg",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://sleepcycle.tools/og-image.jpg",
+            "width": "1200",
+            "height": "630"
+        }
     }
     </script>
 
@@ -138,14 +148,6 @@
             color: var(--primary);
         }
 
-        .seo-content {
-            max-width: 680px;
-            margin: 2rem auto;
-            color: #64748b;
-            font-size: 0.9em;
-            text-align: center;
-        }
-
         .footer-note {
             text-align: center;
             margin-top: 2rem;
@@ -154,17 +156,13 @@
         }
     </style>
 
-    <!-- Favicon Base64 Data URI -->
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏰</text></svg>">
 </head>
 
 <body itemscope itemtype="https://schema.org/WebPage">
     <div class="container">
         <h1 itemprop="name">⏰ SleepCycle.tools</h1>
-        
-        <div class="seo-content" itemprop="description">
-            <p>Scientific sleep calculator using 90-minute cycles and circadian rhythm research</p>
-        </div>
 
         <div class="input-group">
             <label for="wakeTime" id="wakeTimeLabel">Desired Wake-up Time</label>
@@ -187,7 +185,8 @@
         </div>
 
         <div class="footer-note">
-            Uses 90-minute sleep cycles + 14-minute fall asleep time
+            Based on 90-minute sleep cycles + 14-minute fall asleep time<br>
+            <small>© 2024 SleepCycle.tools</small>
         </div>
     </div>
 
@@ -212,15 +211,15 @@
             });
 
             document.getElementById('results').innerHTML = `
-                <div class="seo-content">Recommended bedtimes:</div>
+                <div class="results-header">Recommended Bedtimes</div>
                 ${phases.map(phase => `
                     <div class="time-block" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                         <div>
                             <div class="time" itemprop="text">${phase.bedtime}</div>
                             <meta itemprop="name" content="Bedtime for ${phase.cycles} cycles">
-                            <div class="phase">${phase.duration}</div>
+                            <div class="duration">${phase.duration}</div>
                         </div>
-                        <div class="cycles">${phase.cycles} cycles</div>
+                        <div class="cycles">${phase.cycles} Cycles</div>
                     </div>
                 `).join('')}
             `;

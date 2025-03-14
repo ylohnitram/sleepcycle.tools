@@ -29,7 +29,69 @@ cd sleepcycle.tools
 # Open index.html in any modern browser
 ```
 
-## Analytics  
-This project uses Google Analytics 4 (GA4) for aggregated usage statistics. No personal data is collected. To disable:  
-- Install [GA Opt-Out Extension](https://tools.google.com/dlpage/gaoptout)  
-- Block `www.google-analytics.com` in your ad blocker  
+## 🛠️ How It Works
+
+### Algorithm
+```javascript
+function calculateSleepPhases(wakeTime) {
+  const phases = [];
+  for(let cycles = 5; cycles >= 1; cycles--) {
+    const bedtime = wakeTime - (cycles * 90 + 14) * 60000;
+    phases.push({
+      cycles,
+      bedtime: formatTime(bedtime),
+      duration: `${cycles * 1.5}h sleep`
+    });
+  }
+  return phases;
+```
+
+### Tech Stack
+- Frontend: Vanilla JavaScript + CSS
+- Hosting: GitHub Pages
+- Analytics: Google Analytics 4 (GDPR-compliant)
+
+## 🔍 Analytics & Privacy
+We collect anonymous aggregate data through GA4 to:
+
+* Track feature usage (button clicks)
+* Measure page performance
+* Understand geographical distribution
+
+### Opt-out options:
+
+* Use [GA Opt-Out Extension](https://tools.google.com/dlpage/gaoptout)
+* Block www.google-analytics.com in your ad blocker
+* Use privacy-focused browsers like Brave or Firefox Focus
+
+## 🤝 Contributing
+We welcome contributions! Please follow these steps:
+
+* Fork the repository
+* Create a feature branch (git checkout -b feature/amazing-feature)
+* Commit changes (git commit -m 'Add amazing feature')
+* Push to branch (git push origin feature/amazing-feature)
+* Open a Pull Request
+
+### Suggested Improvements
+
+* Add dark mode toggle
+* Create progressive web app (PWA)
+* Implement timezone detection
+* Add nap calculator feature
+
+##📜 Code of Conduct
+Please review our Code of Conduct before participating. We prioritize:
+
+* Respectful communication
+* Inclusive environment
+* Constructive criticism
+
+##📄 License
+This project is licensed under the MIT License - see LICENSE.md for details.
+
+## 🙏 Acknowledgments
+
+* Sleep cycle research from Harvard Medical School
+* Initial concept inspired by Sleepyti.me
+* Community feedback from Reddit's r/sleep

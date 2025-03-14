@@ -100,3 +100,7 @@ This project is licensed under the MIT License - see LICENSE.md for details.
 * Sleep cycle research from Harvard Medical School
 * Initial concept inspired by Sleepyti.me
 * Community feedback from Reddit's r/sleep
+
+## Need Help?
+
+Open an [issue](https://github.com/ylohnitram/sleepcycle.tools/issues)

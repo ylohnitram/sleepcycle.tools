@@ -14,25 +14,25 @@
     <meta name="theme-color" content="#2563eb">
 
     <!-- Primary Meta Tags -->
-    <title>SleepCycle.tools - 90-Minute Sleep Cycle Calculator</title>
-    <meta name="description" content="Scientific sleep calculator using circadian rhythm research. Calculate perfect bedtimes and wake-up times based on 90-minute sleep cycles.">
+    <title>SleepCycle.tools - Sleep Cycle Calculator (90-Min Average)</title>
+    <meta name="description" content="Sleep planner using average 90-minute cycles. Calculate suggested bedtimes with circadian rhythm considerations. Individual variations may apply.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="SleepCycle.tools - Smart Sleep Planner">
-    <meta property="og:description" content="Optimize your sleep schedule with 90-minute cycle calculations. Instant results with sleep science.">
+    <meta property="og:title" content="SleepCycle.tools - Sleep Cycle Calculator">
+    <meta property="og:description" content="Sleep planning tool using average 90-minute cycle durations with scientific references">
     <meta property="og:image" content="https://sleepcycle.tools/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://sleepcycle.tools">
     <meta property="og:type" content="website">
-    <meta property="og:image:alt" content="Sleep Cycle Calculator Interface">
+    <meta property="og:image:alt" content="Sleep calculator interface with time inputs">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Free 90-Minute Sleep Calculator">
-    <meta name="twitter:description" content="Professional sleep optimization tool based on circadian rhythms">
+    <meta name="twitter:title" content="Free Sleep Cycle Calculator">
+    <meta name="twitter:description" content="Sleep optimization tool with scientific transparency">
     <meta name="twitter:image" content="https://sleepcycle.tools/og-image.jpg">
-    <meta name="twitter:image:alt" content="Sleep calculator visualization">
+    <meta name="twitter:image:alt" content="Visualization of sleep cycle calculations">
 
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -43,8 +43,8 @@
         "url": "https://sleepcycle.tools",
         "operatingSystem": "Web",
         "applicationCategory": "HealthApplication",
-        "description": "Scientific sleep planner using 90-minute cycles",
-        "featureList": "Bedtime calculator, Wake-up time calculator",
+        "description": "Sleep planning tool using average 90-minute cycle durations",
+        "featureList": "Bedtime suggestions, Wake-up time calculator",
         "screenshot": "https://sleepcycle.tools/og-image.jpg",
         "image": {
             "@type": "ImageObject",
@@ -77,12 +77,14 @@
             --primary: #2563eb;
             --secondary: #4f46e5;
             --background: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
         }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--background);
-            color: #1e293b;
+            color: var(--text-primary);
             margin: 0;
             min-height: 100vh;
             display: grid;
@@ -116,7 +118,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
-            color: #475569;
+            color: var(--text-secondary);
         }
 
         input[type="time"] {
@@ -173,11 +175,58 @@
             color: var(--primary);
         }
 
+        .science-section {
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .science-section h2 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .science-section ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .science-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .disclaimer {
+            color: #dc2626;
+            font-size: 0.9em;
+            margin-top: 1rem;
+            border-left: 3px solid #dc2626;
+            padding-left: 1rem;
+        }
+
         .footer-note {
             text-align: center;
             margin-top: 2rem;
             color: #94a3b8;
             font-size: 0.8em;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .cookie-banner a {
+            color: #93c5fd;
+            text-decoration: underline;
         }
     </style>
 
@@ -189,8 +238,42 @@
 </head>
 
 <body itemscope itemtype="https://schema.org/WebPage">
+    <div class="cookie-banner" id="cookieBanner">
+        We use Google Analytics for aggregate usage statistics. 
+        <a href="/privacy" target="_blank">Learn more</a> | 
+        <button onclick="document.getElementById('cookieBanner').style.display = 'none'">Accept</button>
+    </div>
+
     <div class="container">
         <h1 itemprop="name">⏰ SleepCycle.tools</h1>
+
+        <div class="science-section">
+            <h2>Scientific Methodology</h2>
+            <ul>
+                <li>Based on average sleep cycle duration (90 minutes ±20%)</li>
+                <li>14-minute average sleep latency period</li>
+                <li>Circadian rhythm alignment principles</li>
+            </ul>
+
+            <div class="disclaimer">
+                Important: Individual sleep cycles vary between 70-120 minutes. 
+                Consult a healthcare professional for medical advice.
+            </div>
+
+            <h2>Research References</h2>
+            <ul>
+                <li>
+                    <a href="https://www.sleepfoundation.org/stages-of-sleep" target="_blank" rel="noopener">
+                        National Sleep Foundation - Sleep Stages
+                    </a>
+                </li>
+                <li>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/21501653/" target="_blank" rel="noopener">
+                        Carskadon & Dement (2011) - Normal Human Sleep
+                    </a>
+                </li>
+            </ul>
+        </div>
 
         <div class="input-group">
             <label for="wakeTime" id="wakeTimeLabel">Desired Wake-up Time</label>
@@ -209,55 +292,94 @@
         </button>
 
         <div class="results" id="results" role="region" aria-live="polite">
-            <!-- Results populated here -->
+            <!-- Results will be populated here -->
         </div>
 
         <div class="footer-note">
-            Based on 90-minute sleep cycles + 14-minute fall asleep time<br>
-            <small>© 2025 SleepCycle.tools</small>
+            <p>Calculations based on population averages. Individual results may vary.</p>
+            <p>Shift work adaptation features in development</p>
+            <small>© 2024 SleepCycle.tools - Open Source (MIT License)</small>
         </div>
     </div>
 
     <script>
+        // Sleep Phase Calculation Algorithm
         function calculateSleepPhases() {
-            const wakeTime = document.getElementById('wakeTime').value;
-            const [hours, minutes] = wakeTime.split(':');
+            const wakeTimeInput = document.getElementById('wakeTime');
+            if (!wakeTimeInput.value) {
+                alert('Please select a valid wake-up time');
+                return;
+            }
 
+            const [hours, minutes] = wakeTimeInput.value.split(':');
             const wakeUp = new Date();
-            wakeUp.setHours(hours, minutes, 0, 0);
+            wakeUp.setHours(parseInt(hours), parseInt(minutes), 0, 0);
 
-            if (wakeUp < new Date()) wakeUp.setDate(wakeUp.getDate() + 1);
+            // Handle next-day calculation if time is in past
+            if (wakeUp < new Date()) {
+                wakeUp.setDate(wakeUp.getDate() + 1);
+            }
 
-            const phases = Array.from({length: 5}, (_, i) => {
-                const cycles = 5 - i;
-                const bedtime = new Date(wakeUp - (cycles * 90 + 14) * 60000);
+            // Generate 5 sleep cycle options (1-5 cycles)
+            const phases = Array.from({length: 5}, (_, index) => {
+                const cycles = 5 - index;
+                const bedtimeTimestamp = wakeUp.getTime() - 
+                    ((cycles * 90 + 14) * 60000); // 90m cycles + 14m latency
+                
+                const bedtime = new Date(bedtimeTimestamp);
+                
                 return {
                     cycles,
-                    bedtime: bedtime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
-                    duration: `${cycles * 1.5}h sleep`
+                    bedtime: bedtime.toLocaleTimeString([], {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false
+                    }),
+                    duration: `${(cycles * 1.5).toFixed(1)} hours sleep`
                 };
             });
 
-            document.getElementById('results').innerHTML = `
-                <div class="results-header">Recommended Bedtimes</div>
+            // Display results with accessible markup
+            const resultsHTML = `
+                <h3 class="results-header">Suggested Bedtimes</h3>
                 ${phases.map(phase => `
-                    <div class="time-block" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
-                        <div>
+                    <div class="time-block" 
+                         role="listitem"
+                         itemprop="step" 
+                         itemscope 
+                         itemtype="https://schema.org/HowToStep">
+                        <div itemprop="itemListElement">
                             <div class="time" itemprop="text">${phase.bedtime}</div>
-                            <meta itemprop="name" content="Bedtime for ${phase.cycles} cycles">
+                            <meta itemprop="name" content="${phase.cycles} cycle option">
                             <div class="duration">${phase.duration}</div>
                         </div>
-                        <div class="cycles">${phase.cycles} Cycles</div>
+                        <div class="cycles" aria-label="${phase.cycles} sleep cycles">
+                            ${phase.cycles} Cycles
+                        </div>
                     </div>
                 `).join('')}
             `;
+
+            document.getElementById('results').innerHTML = resultsHTML;
         }
 
-        // Initial calculation
-        calculateSleepPhases();
+        // Initialize calculator on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            calculateSleepPhases();
+            
+            // Set timezone data attribute for future features
+            document.body.dataset.timezone = Intl.DateTimeFormat()
+                .resolvedOptions().timeZone;
+        });
 
-        // Timezone detection
-        document.body.dataset.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        // Cookie banner persistence
+        if (!localStorage.getItem('cookieAccepted')) {
+            document.getElementById('cookieBanner').style.display = 'block';
+        }
+
+        document.querySelector('#cookieBanner button').addEventListener('click', () => {
+            localStorage.setItem('cookieAccepted', 'true');
+        });
     </script>
 </body>
 </html>

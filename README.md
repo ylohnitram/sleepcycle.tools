@@ -93,7 +93,7 @@ Please review our Code of Conduct before participating. We prioritize:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see LICENSE.md for details.
+This project is licensed under the MIT License - see [LICENSE](https://github.com/ylohnitram/sleepcycle.tools/LICENSE) for details.
 
 ## 🙏 Acknowledgments
 

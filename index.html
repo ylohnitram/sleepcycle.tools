@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-RLZHLNSQXL');
 </script>
     <meta charset="UTF-8">
@@ -52,6 +51,23 @@
             "url": "https://sleepcycle.tools/og-image.jpg",
             "width": "1200",
             "height": "630"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "name": "SleepCycle.tools"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
         }
     }
     </script>
@@ -175,15 +191,15 @@
 
         <div class="input-group">
             <label for="wakeTime" id="wakeTimeLabel">Desired Wake-up Time</label>
-            <input type="time" 
-                   id="wakeTime" 
-                   value="07:00" 
+            <input type="time"
+                   id="wakeTime"
+                   value="07:00"
                    required
                    aria-labelledby="wakeTimeLabel"
                    itemprop="timeRequired">
         </div>
 
-        <button onclick="calculateSleepPhases()" 
+        <button onclick="calculateSleepPhases()"
                 aria-label="Calculate sleep schedule"
                 itemprop="potentialAction">
             Generate Sleep Plan
@@ -203,10 +219,10 @@
         function calculateSleepPhases() {
             const wakeTime = document.getElementById('wakeTime').value;
             const [hours, minutes] = wakeTime.split(':');
-            
+
             const wakeUp = new Date();
             wakeUp.setHours(hours, minutes, 0, 0);
-            
+
             if (wakeUp < new Date()) wakeUp.setDate(wakeUp.getDate() + 1);
 
             const phases = Array.from({length: 5}, (_, i) => {

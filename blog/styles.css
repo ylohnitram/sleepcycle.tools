@@ -71,16 +71,22 @@ h3 {
 }
 
 /* ===== INTERACTIVE ELEMENTS ===== */
+.action-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
 .cta-button {
-    display: inline-block;
     background: linear-gradient(to right, #2563eb, #4f46e5);
     color: white;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    width: fit-content;
     font-weight: 600;
     transition: transform 0.2s;
-    margin: 2rem 0;
 }
 
 .cta-button:hover {
@@ -123,4 +129,102 @@ h3 {
         padding: 0.75rem;
         font-size: 0.9rem;
     }
+}
+
+<!-- Přidáno do <style> v CSS -->
+.breadcrumb-container {
+    background: #f8fafc;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.breadcrumb {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+}
+
+.sleep-phase {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.research-quote {
+    background: #f8fafc;
+    border-left: 4px solid #94a3b8;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.step-by-step {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.environment-table {
+    width: 100%;
+    margin: 1rem 0;
+    background: white;
+    border-collapse: collapse;
+}
+
+.environment-table th,
+.environment-table td {
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.environment-table th {
+    background-color: #f8fafc;
+}
+
+.share-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.share-label {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.share-button {
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    transition: all 0.2s;
+}
+
+.share-button:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+}
+
+.share-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.twitter svg {
+    fill: #1da1f2;
+}
+
+.reddit svg {
+    fill: #ff4500;
 }

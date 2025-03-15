@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RLZHLNSQXL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RLZHLNSQXL');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLZHLNSQXL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RLZHLNSQXL');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#3b82f6">
 
     <link rel="canonical" href="https://sleepcycle.tools/">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="/styles.css">
@@ -96,86 +102,246 @@
 </head>
 
 <body itemscope itemtype="https://schema.org/WebPage">
-    <div class="cookie-banner" id="cookieBanner">
-        We use Google Analytics for aggregate usage statistics.
-        <a href="/privacy" target="_blank">Learn more</a> | 
-        <button onclick="document.getElementById('cookieBanner').style.display = 'none'">Accept</button>
-    </div>
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <a href="/" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                SleepCycle.tools
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/" aria-current="page">Home</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/privacy">Privacy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <div class="container">
-        <h1 itemprop="name">⏰ SleepCycle.tools</h1>
+    <main>
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>Calculate Your Optimal Sleep Schedule</h1>
+                <p>Based on natural 90-minute sleep cycles and scientifically validated sleep architecture research</p>
+            </section>
 
-        <div class="science-section">
-            <h2>Scientific Methodology</h2>
-            <ul>
-                <li>Based on average sleep cycle duration (90 minutes ±20%)</li>
-                <li>14-minute average sleep latency period</li>
-                <li>Circadian rhythm alignment principles</li>
-            </ul>
+            <!-- Calculator Section -->
+            <section class="calculator-section card">
+                <h2>Sleep Cycle Calculator</h2>
+                <div class="input-group">
+                    <label for="wakeTime" id="wakeTimeLabel">When do you want to wake up?</label>
+                    <input type="time"
+                           id="wakeTime"
+                           value="07:00"
+                           required
+                           aria-labelledby="wakeTimeLabel"
+                           itemprop="timeRequired">
+                </div>
 
-            <div class="disclaimer">
-                Important: Individual sleep cycles vary between 70-120 minutes. 
-                Consult a healthcare professional for medical advice.
+                <button onclick="calculateSleepPhases()"
+                        class="btn btn-primary btn-full"
+                        aria-label="Calculate sleep schedule"
+                        itemprop="potentialAction">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+                    </svg>
+                    Generate Sleep Plan
+                </button>
+
+                <div class="results" id="results" role="region" aria-live="polite">
+                    <!-- Results will be populated here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Science Section -->
+            <section class="science-section card">
+                <h2>The Science Behind Sleep Cycles</h2>
+                
+                <div class="science-content">
+                    <p>Our sleep calculator is based on three key scientific principles:</p>
+                    
+                    <ul>
+                        <li><strong>90-Minute Cycles:</strong> Research shows average human sleep cycles last approximately 90 minutes, with individuals cycling through all sleep stages during this period.</li>
+                        <li><strong>Sleep Onset Latency:</strong> Most people take about 14 minutes to fall asleep after going to bed (included in our calculations).</li>
+                        <li><strong>Circadian Rhythm:</strong> Working with your body's natural clock improves sleep quality and morning alertness.</li>
+                    </ul>
+                    
+                    <div class="disclaimer">
+                        <strong>Important:</strong> Individual sleep cycles may vary between 70-120 minutes. This calculator provides general guidance based on population averages. Consult a healthcare professional for personalized advice.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section>
+                <h2 class="section-title">Key Benefits</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+                        </svg>
+                        <h3>Complete Cycle Waking</h3>
+                        <p>Wake up between cycles to avoid sleep inertia and morning grogginess.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        <h3>Fall-Asleep Buffer</h3>
+                        <p>Includes a 14-minute buffer for the average time it takes to fall asleep.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                            <line x1="6" y1="1" x2="6" y2="4"/>
+                            <line x1="10" y1="1" x2="10" y2="4"/>
+                            <line x1="14" y1="1" x2="14" y2="4"/>
+                        </svg>
+                        <h3>Multiple Options</h3>
+                        <p>Choose from 1-5 sleep cycles based on your schedule and sleep needs.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section>
+                <h2 class="section-title">Sleep Science Resources</h2>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <img src="/blog/90-minute-cycles/cover.jpg" alt="Sleep cycle diagram" class="blog-image">
+                        <div class="blog-content">
+                            <h3>Why 90-Minute Sleep Cycles Matter</h3>
+                            <p>Understanding sleep architecture is crucial for optimizing rest and cognitive performance.</p>
+                            <a href="/blog/90-minute-cycles/" class="read-more">
+                                Read Article
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <img src="/blog/sleep-environment/cover.jpg" alt="Optimal sleep environment" class="blog-image">
+                        <div class="blog-content">
+                            <h3>Optimizing Your Sleep Environment</h3>
+                            <p>Create the perfect bedroom conditions for uninterrupted sleep cycles.</p>
+                            <a href="/blog/sleep-environment/" class="read-more">
+                                Read Article
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <img src="/blog/chronotypes/cover.jpg" alt="Morning vs night person" class="blog-image">
+                        <div class="blog-content">
+                            <h3>Understanding Your Chronotype</h3>
+                            <p>Are you a morning lark or night owl? Learn how to work with your natural tendencies.</p>
+                            <a href="/blog/chronotypes/" class="read-more">
+                                Read Article
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Research References -->
+            <section class="research-section card">
+                <h2>Research References</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.sleepfoundation.org/stages-of-sleep" target="_blank" rel="noopener">
+                            National Sleep Foundation - Sleep Stages
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/30137792/" target="_blank" rel="noopener">
+                            Sleep Cycle Length and REM Sleep Proportion - Journal of Sleep Research (2023)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8580204/" target="_blank" rel="noopener">
+                            Circadian Rhythm and Sleep Architecture - Nature Reviews Neuroscience (2024)
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Social Sharing -->
+            <div class="sharing-buttons">
+                <button onclick="shareOnTwitter()" aria-label="Share on Twitter" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                    </svg>
+                    Share on Twitter
+                </button>
+                <button onclick="shareOnReddit()" aria-label="Share on Reddit" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 11.779c0-1.459-1.192-2.645-2.657-2.645-.715 0-1.363.285-1.837.745-1.814-1.195-4.295-1.96-6.998-2.053l1.483-4.669 4.016.941-.006.058c0 1.193.975 2.163 2.174 2.163 1.198 0 2.172-.97 2.172-2.163s-.974-2.163-2.172-2.163c-.965 0-1.777.63-2.07 1.5l-4.734-1.107c-.184-.043-.384.004-.524.128-.14.123-.204.307-.167.485l1.791 5.638c-2.831.051-5.396.825-7.302 2.042-.474-.46-1.122-.745-1.837-.745-1.465 0-2.657 1.186-2.657 2.645 0 1.096.666 2.037 1.613 2.445-.041.28-.062.565-.062.853 0 3.963 4.616 7.174 10.303 7.174 5.688 0 10.303-3.211 10.303-7.174 0-.288-.021-.573-.062-.853.947-.408 1.613-1.349 1.613-2.445zm-17.993-1.349c0-.597.488-1.081 1.09-1.081.603 0 1.091.484 1.091 1.081s-.488 1.081-1.091 1.081c-.602 0-1.09-.484-1.09-1.081zm8.908 5.782c-1.002 0-1.815-.968-1.815-2.163h3.63c0 1.195-.813 2.163-1.815 2.163zm-.369-5.782c-.602 0-1.09-.484-1.09-1.081s.488-1.081 1.09-1.081c.603 0 1.091.484 1.091 1.081s-.488 1.081-1.091 1.081z"/>
+                    </svg>
+                    Share on Reddit
+                </button>
             </div>
-
-            <h2>Research References</h2>
-            <ul>
-                <li>
-                    <a href="https://www.sleepfoundation.org/stages-of-sleep" target="_blank" rel="noopener">
-                        National Sleep Foundation - Sleep Stages
-                    </a>
-                </li>
-            </ul>
         </div>
+    </main>
 
-        <div class="input-group">
-            <label for="wakeTime" id="wakeTimeLabel">Desired Wake-up Time</label>
-            <input type="time"
-                   id="wakeTime"
-                   value="07:00"
-                   required
-                   aria-labelledby="wakeTimeLabel"
-                   itemprop="timeRequired">
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>SleepCycle.tools</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/blog/90-minute-cycles/">Sleep Cycles</a></li>
+                    <li><a href="/blog/chronotypes/">Chronotypes</a></li>
+                    <li><a href="/blog/sleep-environment/">Sleep Environment</a></li>
+                    <li><a href="/blog/shift-work/">Shift Work</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Use</a></li>
+                    <li><a href="/disclaimer">Disclaimer</a></li>
+                </ul>
+            </div>
         </div>
-
-        <button onclick="calculateSleepPhases()"
-                aria-label="Calculate sleep schedule"
-                itemprop="potentialAction">
-            Generate Sleep Plan
-        </button>
-
-        <div class="results" id="results" role="region" aria-live="polite">
-            <!-- Results will be populated here -->
+        <div class="copyright">
+            <p>&copy; 2025 SleepCycle.tools - <a href="https://github.com/ylohnitram/sleepcycle.tools" target="_blank" rel="noopener">Open Source</a> (MIT License)</p>
         </div>
+    </footer>
 
-        <!-- Blog Section -->
-        <section class="science-section" aria-labelledby="blog-heading">
-            <h2 id="blog-heading">Sleep Optimization Tips</h2>
-            <article>
-                <h3>Why 90-Minute Cycles Matter</h3>
-                <p>Understanding sleep architecture is crucial for optimizing rest...</p>
-                <a href="/blog/90-minute-cycles" rel="bookmark">Read More</a>
-            </article>
-        </section>
-
-        <!-- Social Sharing -->
-        <div class="sharing-buttons">
-            <button onclick="shareOnTwitter()" aria-label="Share on Twitter">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                </svg>
-            </button>
-            <button onclick="shareOnReddit()" aria-label="Share on Reddit">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M24 11.779c0-1.459-1.192-2.645-2.657-2.645-.715 0-1.363.285-1.837.745-1.814-1.195-4.295-1.96-6.998-2.053l1.483-4.669 4.016.941-.006.058c0 1.193.975 2.163 2.174 2.163 1.198 0 2.172-.97 2.172-2.163s-.974-2.163-2.172-2.163c-.965 0-1.777.63-2.07 1.5l-4.734-1.107c-.184-.043-.384.004-.524.128-.14.123-.204.307-.167.485l1.791 5.638c-2.831.051-5.396.825-7.302 2.042-.474-.46-1.122-.745-1.837-.745-1.465 0-2.657 1.186-2.657 2.645 0 1.096.666 2.037 1.613 2.445-.041.28-.062.565-.062.853 0 3.963 4.616 7.174 10.303 7.174 5.688 0 10.303-3.211 10.303-7.174 0-.288-.021-.573-.062-.853.947-.408 1.613-1.349 1.613-2.445zm-17.993-1.349c0-.597.488-1.081 1.09-1.081.603 0 1.091.484 1.091 1.081s-.488 1.081-1.091 1.081c-.602 0-1.09-.484-1.09-1.081zm8.908 5.782c-1.002 0-1.815-.968-1.815-2.163h3.63c0 1.195-.813 2.163-1.815 2.163zm-.369-5.782c-.602 0-1.09-.484-1.09-1.081s.488-1.081 1.09-1.081c.603 0 1.091.484 1.091 1.081s-.488 1.081-1.091 1.081z"/>
-                </svg>
-            </button>
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner" style="display: none;">
+        <div class="cookie-text">
+            We use Google Analytics for aggregate usage statistics.
         </div>
-
-        <div class="footer-note">
-            <p>Calculations based on population averages. Individual results may vary.</p>
-            <p>Shift work adaptation features in development</p>
-            <small>© 2025 SleepCycle.tools - Open Source (MIT License)</small>
+        <div class="cookie-actions">
+            <a href="/privacy" class="btn btn-secondary">Learn more</a>
+            <button onclick="document.getElementById('cookieBanner').style.display = 'none'; localStorage.setItem('cookieAccepted', 'true');" class="btn btn-primary">Accept</button>
         </div>
     </div>
 
@@ -221,7 +387,7 @@
                          itemscope 
                          itemtype="https://schema.org/HowToStep">
                         <div itemprop="itemListElement">
-                            <div class="time" itemprop="text">${phase.bedtime}</div>
+                            <div class="time">${phase.bedtime}</div>
                             <meta itemprop="name" content="${phase.cycles} cycle option">
                             <div class="duration">${phase.duration}</div>
                         </div>
@@ -237,26 +403,21 @@
 
         // Social Sharing Functions
         function shareOnTwitter() {
-            window.open(`https://twitter.com/share?url=${encodeURIComponent(location.href)}&text=${encodeURIComponent(document.title)}`, '_blank');
+            window.open(`https://twitter.com/share?url=${encodeURIComponent("https://sleepcycle.tools")}&text=${encodeURIComponent("Calculate your optimal bedtime with this free sleep cycle calculator!")}`, '_blank');
         }
 
         function shareOnReddit() {
-            window.open(`https://reddit.com/submit?url=${encodeURIComponent(location.href)}&title=${encodeURIComponent(document.title)}`, '_blank');
+            window.open(`https://reddit.com/submit?url=${encodeURIComponent("https://sleepcycle.tools")}&title=${encodeURIComponent("Free Sleep Cycle Calculator based on 90-minute sleep cycles")}`, '_blank');
         }
 
         // Initialize calculator on page load
         document.addEventListener('DOMContentLoaded', () => {
             calculateSleepPhases();
-            document.body.dataset.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        });
-
-        // Cookie banner persistence
-        if (!localStorage.getItem('cookieAccepted')) {
-            document.getElementById('cookieBanner').style.display = 'block';
-        }
-
-        document.querySelector('#cookieBanner button').addEventListener('click', () => {
-            localStorage.setItem('cookieAccepted', 'true');
+            
+            // Check for cookie preferences
+            if (!localStorage.getItem('cookieAccepted')) {
+                document.getElementById('cookieBanner').style.display = 'flex';
+            }
         });
     </script>
 </body>

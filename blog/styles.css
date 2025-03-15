@@ -1,0 +1,16 @@
+/* /blog/styles.css */
+@import url('/styles.css');
+
+/* Blog specifické styly */
+nav[aria-label="Breadcrumb"] {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.article-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    margin: 2rem 0;
+}

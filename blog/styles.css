@@ -1,16 +1,126 @@
-/* /blog/styles.css */
-@import url('/styles.css');
-
-/* Blog specifické styly */
-nav[aria-label="Breadcrumb"] {
-    font-size: 0.9em;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
+/* ===== BASE STYLES ===== */
+.blog-article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: #1e293b;
 }
 
-.article-content img {
+/* ===== TYPOGRAPHY ===== */
+h1 {
+    color: #2563eb;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+h2 {
+    color: #1e293b;
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    color: #475569;
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+}
+
+/* ===== IMAGE HANDLING ===== */
+.article-cover {
     width: 100%;
     height: auto;
     border-radius: 1rem;
     margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* ===== DATA TABLES ===== */
+.research-table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+}
+
+.research-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.research-table th {
+    background-color: #2563eb;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.research-table td {
+    padding: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.research-table tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* ===== INTERACTIVE ELEMENTS ===== */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s;
+    margin: 2rem 0;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== SLEEP PHASE CARDS ===== */
+.sleep-phase {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-left: 4px solid #2563eb;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.sleep-phase ul {
+    padding-left: 1.5rem;
+}
+
+.sleep-phase li {
+    margin: 0.5rem 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .blog-article {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .research-table th,
+    .research-table td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
 }
